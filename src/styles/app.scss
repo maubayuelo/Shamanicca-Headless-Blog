@@ -1,0 +1,22 @@
+// app.scss
+// open the terminal
+// Before starting CSS/JS compilation go to the Theme's folder
+// Use "npm run watch" command to compile while you develop
+// Use "npm run prod" command to compile for production
+
+
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+@import 'type';
+@import 'layout';
+@import 'header';
+@import 'footer';
+@import 'buttons';
+@import 'comments';
+@import 'form';
+@import 'pager';
+@import 'prom';
+@import 'helpers';
+@import 'loadingBar';

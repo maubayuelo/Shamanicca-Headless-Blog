@@ -1,0 +1,19 @@
+// _mixins.scss
+
+
+
+/// MIXINGS
+
+/// Breakpoints
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet {
+  @media (min-width: $device_medium) { @content; }
+}
+@mixin for-laptop {
+  @media (min-width: $device_large) { @content; }
+}
+@mixin for-desktop {
+  @media (min-width: $device_xlarge) { @content; }
+}

@@ -1,0 +1,64 @@
+// _footer.scss
+footer{
+    border-top: 1px solid $grey-2;
+    display: block;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    .container-1-col {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      .row{
+        display: flex;
+        a{
+          margin-right: 24px;
+          &:last-child{
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  
+  .cookies-infobar {
+    background: rgba($black, 0.75);
+    color: $white;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &.cookies-infobar_accepted {
+      display: none;
+    }
+    .cookies-infobar_wrapper {
+      width: calc(100% - 30px);
+      margin: 15px 15px 0px 15px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    a {
+      color: inherit;
+    }
+    .cookies-infobar-btn {
+      margin-left: 12px;
+      padding: 3px 5px;
+      background-color: $white;
+      color: $primary;
+      border-radius: 15px;
+      text-decoration: none;
+      &:hover, &:focus{
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  
+  
+  }
+  

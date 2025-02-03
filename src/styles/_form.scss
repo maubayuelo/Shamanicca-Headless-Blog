@@ -1,0 +1,136 @@
+// _form.scss
+@use "sass:math";
+
+input,
+select,
+textarea,
+fieldset {
+  font-family: $font_sans_serif;
+  font-size: $font-size;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+label {
+  vertical-align: middle;
+}
+
+input[type=text],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=week] {
+  font-size: $font-size;
+  padding: 9px 12px;
+  border-radius: 6px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  border: 1px solid $grey-5;
+}
+
+input[type=submit]{
+  font-size: $font-size;
+  padding: 9px 12px;
+  border-radius: 6px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  border: 3px solid $primary;
+  background-color: $primary;
+  color: $white;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 100%;
+  min-width: fit-content;
+  max-width: fit-content;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  &:hover{
+    border: 3px solid $black;
+    background-color: $black;
+  }
+}
+
+select {
+  line-height: 1.75;
+  padding: 24px 15px;
+}
+
+select:not([multiple]) {
+  height: math.div($font-size, $ratio);
+  vertical-align: middle;
+}
+
+textarea {
+  line-height: 1.5;
+  padding: 24px 15px;
+}
+
+
+/// CONTACT US AND NEWSLETTER PAGE FORM
+
+.mc4wp-form, .wpcf7{
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  .wpcf7-not-valid-tip{
+    font-family: $font_sans_serif;
+    font-size: $caption;
+  }
+  .wpcf7-spinner{
+    display: none;
+  }
+  .mc4wp-response{
+    margin-top: $space_sm;
+    .mc4wp-alert{
+      p{
+        font-family: $font_sans_serif;
+        font-size: $font-size;
+      }
+    }
+  }
+  .wpcf7-response-output{
+    text-align: center;
+    font-family: $font_sans_serif;
+    font-size: $caption-2;
+    padding: 30px !important;
+    margin: 0 !important;
+    border-radius: 6px;
+  }
+  .wpcf7-form-control-wrap, p, label, textarea{
+    width: 100%;
+    text-align: left;
+  }
+  input{
+    width: 100%;
+  }
+  input.btn{
+    width: 100%;
+    max-width: 480px;
+    border: 3px solid $primary;
+    &:hover{
+      border-color: $black;
+    }
+    @include for-desktop {
+      max-width: 150px;
+    }
+  }
+}

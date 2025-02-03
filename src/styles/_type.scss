@@ -1,0 +1,140 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+$font-size: 18px;
+$ratio: 1.2;
+/* Calculate values */
+$paragraph: $font-size * $ratio;
+$caption: $font-size / $ratio;
+$caption-2: $caption / $ratio;
+$xsmall: $font-size;
+$h4: $paragraph * $ratio;
+$h3: $h4 * $ratio;
+$h2: $h3 * $ratio;
+$h1: $h2 * $ratio;
+$font_serif: 'Lora', Times, serif;
+$font_sans_serif: 'poppins', Helvetica, Arial, sans-serif;
+
+/* FONT SIZES */
+p {
+  font-family: $font_serif;
+  font-size: $paragraph;
+  line-height: $paragraph * 1.333;
+  margin-bottom: calc($paragraph / $ratio);
+}
+.type-sz-caption-2 {
+  font-size: $caption-2;
+  line-height: $caption * $ratio;
+  margin-bottom: $caption / $ratio;
+}
+.type-sz-caption, .caption, figcaption {
+  font-size: $caption;
+  line-height: $paragraph * $ratio;
+  margin-bottom: calc($paragraph / $ratio);
+}
+
+.type-sz-xsm {
+  font-size: $xsmall;
+  line-height: $paragraph * $ratio;
+  margin-bottom: calc($paragraph / $ratio);
+}
+
+.type-sz-default {
+  font-size: $paragraph;
+  line-height: $paragraph * $ratio;
+  margin-bottom: calc($paragraph / $ratio);
+}
+
+.type-sz-sm {
+  font-size: $h4;
+  margin-bottom: calc($paragraph / $ratio);
+  @include for-desktop {
+    font-size: $h4 * $ratio;
+  }
+}
+
+.type-sz-md {
+  font-size: $h3;
+  margin-bottom: $paragraph;
+  @include for-desktop {
+    font-size: $h3 * $ratio;
+  }
+}
+
+.type-sz-lg {
+  font-size: $h2;
+  margin-bottom: $paragraph;
+  @include for-desktop {
+    font-size: $h2 * $ratio;
+  }
+}
+
+.type-sz-xlg {
+  font-size: $h1;
+  margin-bottom: $paragraph;
+  @include for-desktop {
+    font-size: $h1 * $ratio;
+  }
+}
+
+
+/* FONT APPAREANCES */
+
+.type-title-tag {
+  margin-top: 6px;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+  font-size: calc($paragraph / $ratio);
+  display: inline-block;
+  clear: both;
+  border-bottom: 1px solid $grey-3;
+  @include for-desktop {
+    margin-top: 15px;
+  }
+}
+
+.type-serif{
+  font-family: $font_serif;
+}
+.type-italic{
+  font-style: italic;
+}
+
+.type-sansserif, figcaption , .caption, .content p {
+  font-family: $font_sans_serif;
+}
+
+.type-uppercase {
+  text-transform: uppercase;
+}
+
+.type-bold {
+  font-weight: 700;
+}
+
+.type-regular {
+  font-weight: 400;
+}
+
+.type-no-decoration {
+  text-decoration: none;
+}
+
+.type-no-margin {
+  margin-bottom: 0;
+}
+
+.type-white{
+  color:$white;
+}
+.type-black{
+  color:$black;
+}
+.type-primary{
+  color:$primary;
+}
+
+.type-center{
+  text-align: center;
+}

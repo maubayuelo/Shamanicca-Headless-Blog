@@ -1,0 +1,166 @@
+// _header.scss
+header{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    border-bottom: 1px solid $grey-2;
+    background-color: $white;
+    top:0;
+    .col{
+      display:flex;
+      margin: 0 auto;
+      width:100%;
+      max-width: calc(100% - 48px);
+      height: 60px;
+      padding: 0 24px;
+      align-items: center;
+      justify-content: space-between;
+      align-content: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      @include for-desktop {
+        max-width: calc(100% - 48px);
+      }
+      .logo{
+        display: flex;
+        width: 100%;
+        max-width: 150px;
+        img{
+          width: 100%;
+        }
+      }
+      .ico {
+        display: flex;
+        width: 33px;
+        height: 33px;
+        &.ham_btn{
+          cursor: pointer;
+        }
+        .ico-x{
+          display: none;
+        }
+        .ico-ham{
+          display: flex;
+        }
+        &.menu_hidden{
+          .ico-x{
+            display: flex;
+          }
+          .ico-ham{
+            display: none;
+          }
+        }
+        &.search_btn{
+          cursor: pointer;
+          opacity: 1;
+          transition: all 0.2s ease;
+          &.search_form_header_active{
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+  }
+  
+  .menu{
+    transition: left 0.2s ease;
+    position: fixed;
+    z-index: 11;
+    background-color: $black;
+    width: 100%;
+    min-width: fit-content;
+    max-width: 420px;
+    height: 100vh;
+    top:60px;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    &_hidden{
+      left:-420px;
+    }
+    p{
+      margin-left: 30px;
+      color:$white;
+    }
+    a{
+      color: $white;
+      margin-left: 24px;
+      opacity: 1;
+      &:hover{
+        opacity: 0.45;
+      }
+    }
+    .row-ico{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      a{
+        img{
+          filter: invert(1);
+        }
+      }
+    }
+  }
+  
+  .searchform{
+      width: 100%;
+      max-width: 450px;
+      display: flex;
+    div{
+      width: 100%;
+      display: flex;
+      input[type=text]{
+        width: 100%;
+        border-radius: 6px 0 0  6px;
+        border: 1px solid $grey-5;
+        flex-grow: 1;
+        &:focus, &:focus-visible{
+          outline: none;
+          border: 3px solid $focus;
+        }
+      }
+      input[type=submit]{
+        border-radius: 0 6px 6px 0;
+        &:hover, &:focus{
+          border: 3px solid $black;
+          background-color: $black;
+          color: $white;
+        }
+      }
+    }
+  }
+  .search_form_header {
+    overflow-y: hidden;
+    transition: top 0.2s ease;
+    position: fixed;
+    top:-20px;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    width: calc(100% - 48px);
+    background-color: $black;
+    padding: 15px 24px;
+    &.search_form_header_active{
+      top:60px;
+    }
+    .searchform{
+        input[type=submit]{
+          &:hover, &:focus{
+            border: 3px solid $grey-5;
+            background-color: $grey-5;
+            color: $white;
+          }
+        }
+      }
+    }
+  
+  .search_form_404{
+  
+  }
+  

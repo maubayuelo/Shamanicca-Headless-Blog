@@ -1,0 +1,62 @@
+// _pager.scss
+
+.pager_navigation {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  @include for-tablet {
+    flex-wrap: nowrap;
+  }
+  li{
+    display: inline;
+    color: $primary;
+    margin-left: 3px;
+    margin-right: 3px;
+    @include for-tablet {
+      margin-bottom: 0;
+    }
+    &:first-child{
+      margin-left: 0;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+    a{
+      width: 100%;
+      max-width: fit-content;
+      text-decoration: none;
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      transition: all 0.2s ease;
+      width: 100%;
+      min-width: fit-content;
+      padding: 9px 12px;
+      border-radius: 9px;
+      border: 3px solid $grey-5;
+      color: $grey-5;
+      background-color: $white;
+      box-sizing: border-box;
+      line-height: 1em;
+      text-decoration: none;
+      user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      cursor: pointer;
+      &:hover{
+        background-color:$black;
+        color: $white;
+        border: 3px solid $black;
+      }
+    }
+    &.active, &.focus {
+      a {
+        border: 3px solid $grey-5;
+        background-color: $grey-5;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+
+// _helpers.scss
+.margin-top{
+  &-xsm{
+    margin-top: $space_xxsm;
+  }
+  &-sm{
+    margin-top: $space_sm;
+  }
+  &-md{
+    margin-top: $space_md;
+  }
+  &-mdlg{
+    margin-top: $space_sm;
+    @include for-tablet  {
+      margin-top: $space_mdlg;
+    }
+  }
+  &-lg{
+    margin-top: $space_lg;
+  }
+  &-xlg{
+    margin-top: $space_xlg;
+  }
+}
+
+.margin-right{
+  &-xsm{
+    margin-right: $space_xxsm;
+  }
+  &-sm{
+    margin-right: $space_sm;
+  }
+  &-md{
+    margin-right: $space_md;
+  }
+  &-mdlg{
+    margin-right: $space_sm;
+    @include for-tablet  {
+      margin-right: $space_mdlg;
+    }
+  }
+  &-lg{
+    margin-right: $space_lg;
+  }
+  &-xlg{
+    margin-right: $space_xlg;
+  }
+}
+
+.margin-bottom{
+  &-xsm{
+    margin-bottom: $space_xxsm;
+  }
+  &-sm{
+    margin-bottom: $space_sm;
+  }
+  &-md{
+    margin-bottom: $space_md;
+  }
+  &-mdlg{
+    margin-bottom: $space_sm;
+    @include for-tablet {
+      margin-bottom: $space_mdlg;
+    }
+  }
+  &-lg{
+    margin-bottom: $space_lg;
+  }
+  &-xlg{
+    margin-bottom: $space_xlg;
+  }
+}
+
+.margin-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.padding-top{
+  &-xsm{
+    padding-top: $space_xxsm;
+  }
+  &-sm{
+    padding-top: $space_sm;
+  }
+  &-md{
+    padding-top: $space_md;
+  }
+  &-mdlg{
+    padding-top: $space_mdlg;
+  }
+  &-lg{
+    padding-top: $space_lg;
+  }
+  &-xlg{
+    padding-top: $space_xlg;
+  }
+}
+
+.padding-right{
+  &-xsm{
+    padding-right: $space_xxsm;
+  }
+  &-sm{
+    padding-right: $space_sm;
+  }
+  &-md{
+    padding-right: $space_md;
+  }
+  &-mdlg{
+    padding-right: $space_sm;
+    @include for-tablet  {
+      padding-right: $space_mdlg;
+    }
+  }
+  &-lg{
+    padding-right: $space_lg;
+  }
+  &-xlg{
+    padding-right: $space_xlg;
+  }
+}
+
+
+.padding-bottom{
+  &-xsm{
+    padding-bottom: $space_xxsm;
+  }
+  &-sm{
+    padding-bottom: $space_sm;
+  }
+  &-md{
+    padding-bottom: $space_md;
+  }
+  &-mdlg{
+    padding-bottom: $space_mdlg;
+  }
+  &-lg{
+    padding-bottom: $space_lg;
+  }
+  &-xlg{
+    padding-bottom: $space_xlg;
+  }
+}
+
+.no{
+  &-margin{
+    margin: 0;
+  }
+  &-margin-top{
+    margin-top: 0px;
+  }
+  &-margin-bottom{
+    margin-bottom: 0px;
+  }
+}
+
+img.img-sz-initial{
+  width: initial !important;
+}
+
+.center-block{
+  display: flex;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

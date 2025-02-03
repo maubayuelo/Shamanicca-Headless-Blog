@@ -1,0 +1,22 @@
+// _comments.scss
+.comments_cont {
+  width: 100%;
+  max-width: calc(100% - 48px);
+  padding: 0 24px;
+  margin-left: auto;
+  margin-right: auto;
+  @include for-tablet {
+    max-width: 660px;
+    padding: 0;
+  }
+  @include for-desktop {
+    max-width: 100%;
+  }
+  #comments.comments-area{
+    margin-top: 0;
+    p, div{
+      font-family: $font_sans_serif;
+      font-size: $caption-2;
+    }
+  }
+}
