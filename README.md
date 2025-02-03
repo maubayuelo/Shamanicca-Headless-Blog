@@ -57,7 +57,7 @@ VITE_API_BASE_URL=https://shamanicca.local/wp-json
 This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## 👥 Contributors
-- **Your Name** - [@yourgithub](https://github.com/YOUR_GITHUB_USERNAME)
+- **Your Name** - [@maubayuelo](https://github.com/maubayuelo)
 
 ## 📈 Future Enhancements
 - Ecommerce integration.
