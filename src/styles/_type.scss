@@ -101,7 +101,7 @@ p {
   font-style: italic;
 }
 
-.type-sansserif, figcaption , .caption, .content p {
+.type-sansserif, figcaption , .caption{
   font-family: $font_sans_serif;
 }
 
@@ -137,4 +137,53 @@ p {
 
 .type-center{
   text-align: center;
+}
+
+
+
+/// listings
+.article_content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+
+  h2,  h3, h4, strong{
+    font-weight: 700;
+  } 
+  h2,  h3, h4, p{
+    font-family: $font_sans_serif;
+  }
+
+  h2 {
+    font-size: $h4;
+    margin-bottom: calc($paragraph / $ratio);
+    @include for-desktop {
+      font-size: $h4 * $ratio;
+    }
+  }
+  h3 {
+    font-size: $paragraph;
+    line-height: $paragraph * $ratio;
+    margin-bottom: calc($paragraph / 6);
+  }
+  li{
+    list-style: disc;
+  }
+  ol{
+    list-style: decimal;
+  }
+  ul, ol{
+    padding-left: 24px;
+    
+    li{
+      font-family: $font_sans_serif;
+      font-size: $paragraph;
+      line-height: $paragraph * 1.333;
+      &:last-child{
+        margin-bottom: calc($paragraph);
+      }
+    }
+  }
+  
 }

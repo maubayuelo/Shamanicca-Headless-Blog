@@ -1,3 +1,4 @@
+// Home.jsx
 import React, { useState, useEffect } from "react";
 import "../styles/app.scss";
 import AdBanner from "../components/AdBanner";
@@ -47,6 +48,7 @@ const Home = () => {
     const loadHeroArticle = async () => {
       try {
         const heroArticleData = await fetchHeroArticle();
+        console.log("Hero Article Data:", heroArticleData);
         setHeroArticle(heroArticleData);
       } catch (error) {
         console.error("Error loading hero article:", error);
@@ -98,12 +100,11 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Shamanicca Blog"
-        description="Mindfulness, Wicca, White Magic, Alchemy &amp; Shamanism Blog"
-        keywords="meditation, spirituality, guided meditations, inner peace, wicca, shamanism, Mindfulness,  White Magic, Alchemy, Blog"
-        image="https://shamanicca.com/path-to-image.jpg"
+        title="Shamanicca Blog - Mindfulness, Wicca, White Magic, Alchemy & Shamanism"
+        description="Explore articles about mindfulness, Wicca, White Magic, Alchemy, and Shamanism."
         url="https://shamanicca.com"
       />
+
       <section className="content">
         {/* Main Banner Section */}
         <MainBanner
@@ -117,7 +118,7 @@ const Home = () => {
           description={null}
           isLoading={isLoadingHomeBanner}
         />
-
+        {/* {console.log(heroArticle)} */}
         {/* Hero Article Section */}
         {isLoadingHeroArticle ? (
           <LoadingBar classes={["padding-top-xlg", "margin-bottom-sm"]} />

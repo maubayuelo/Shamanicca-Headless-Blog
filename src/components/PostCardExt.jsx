@@ -1,7 +1,9 @@
+// PostCardExt.jsx
 import React from "react";
 import { fetchPlaceholderImage } from "../utils/api";
+import { decodeEntities } from "../utils/decodeEntities";
 
-const PostCardExt = ({ post, placeholderImage, decodeEntities }) => {
+const PostCardExt = ({ post, placeholderImage }) => {
   const imageSrc =
     post._embedded?.["wp:featuredmedia"]?.[0]?.media_details?.sizes?.medium
       ?.source_url || placeholderImage.medium;
@@ -32,7 +34,8 @@ const PostCardExt = ({ post, placeholderImage, decodeEntities }) => {
             .replace(/(<([^>]+)>)/gi, "")
             .split(" ")
             .slice(0, 12)
-            .join(" ")}
+            .join(" ")}{" "}
+          ...
         </p>
       </div>
     </div>

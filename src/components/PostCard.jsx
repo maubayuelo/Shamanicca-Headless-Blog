@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from "react";
 import LoadingBar from "./LoadingBar";
 import { fetchPlaceholderImage } from "../utils/api";
+import { decodeEntities } from "../utils/decodeEntities";
 
-const PostCard = ({ post, decodeEntities, isLoading }) => {
+const PostCard = ({ post, isLoading }) => {
   const [placeholderImage, setPlaceholderImage] = useState("");
   const [imageLoaded, setImageLoaded] = useState(false); // Track image loading state
 
@@ -44,7 +45,7 @@ const PostCard = ({ post, decodeEntities, isLoading }) => {
     <section key={post.id} className="post_thumb">
       <a href={`/post/${post.slug}`}>
         {!imageLoaded && (
-          <div className="padding-right-md">
+          <div className="padding-right-sm">
             <LoadingBar classes={["aspect-1-1"]} />
           </div>
         )}{" "}
@@ -63,7 +64,7 @@ const PostCard = ({ post, decodeEntities, isLoading }) => {
           </a>
         </h4>
         <p className="type-sansserif type-sz-caption type-no-margin">
-          {excerptText} ...
+          {decodeEntities(excerptText)}...
         </p>
       </div>
     </section>

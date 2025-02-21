@@ -73,12 +73,13 @@ const Category = () => {
   return (
     <>
       <SEO
-        title={`Shamanicca Blog - ${categoryName}`}
-        description={categoryDescription}
-        keywords="meditation, spirituality, guided meditations, inner peace, wicca, shamanism, Mindfulness,  White Magic, Alchemy, Blog"
-        image="https://shamanicca.com/path-to-image.jpg"
-        url="https://shamanicca.com"
+        title={`Category: ${categoryName} - Shamanicca Blog`}
+        description={
+          categoryDescription || "Browse all articles in this category."
+        }
+        url={`https://shamanicca.com/category/${slug}`}
       />
+
       <section className="content margin-bottom-sm">
         {/* Main Banner Section */}
         <MainBanner
@@ -102,13 +103,6 @@ const Category = () => {
                   key={post.id}
                   post={post}
                   placeholderImage={placeholderImage}
-                  decodeEntities={(str) =>
-                    str
-                      .replace(/(<([^>]+)>)/gi, "")
-                      .split(" ")
-                      .slice(0, 12)
-                      .join(" ")
-                  }
                 />
                 {posts.length > 5 && index === 2 && (
                   <AdBanner

@@ -62,19 +62,12 @@ const Page = () => {
   return (
     <>
       <SEO
-        title={title.rendered || "Shamanicca Blog"}
-        description={
-          excerpt.rendered?.replace(/<\/?p>/g, "") ||
-          "Mindfulness, Wicca, White Magic, Alchemy & Shamanism Blog"
-        }
-        keywords={
-          page.keywords ? page.keywords.join(", ") : "spirituality, meditation"
-        }
-        image={featuredMedia || "https://example.com/default-image.jpg"}
+        title={title.rendered}
+        description={excerpt.rendered.replace(/<\/?p>/g, "")}
         url={`https://shamanicca.com/page/${slug}`}
       />
 
-      <section className="content">
+      <section className="content  margin-bottom-lg">
         <article>
           <h1 className="type-sansserif type-sz-lg padding-top-md type-bold type-uppercase">
             {title.rendered}
@@ -102,7 +95,7 @@ const Page = () => {
           {/* Page Content */}
           {content.rendered && (
             <div
-              className=""
+              className="article_content"
               dangerouslySetInnerHTML={{
                 __html: content.rendered,
               }}

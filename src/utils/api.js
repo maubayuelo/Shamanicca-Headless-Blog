@@ -1,7 +1,8 @@
 // api.js
 import axios from 'axios';
+const API_BASE_URL = 'https://shamanicca.com/cms/wp-json';
+//const API_BASE_URL = 'https://shamanicca.local/wp-json';
 
-const API_BASE_URL = 'https://shamanicca.local/wp-json';
 const PLACEHOLDER_IMAGE_ID = 257; // ID of the placeholder image
 
 export const fetchPosts = (page = 1) =>
@@ -15,43 +16,67 @@ export const fetchPostById = (id) => axios.get(`${API_BASE_URL}/wp/v2/posts/${id
 export const fetchPlaceholderImage = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/wp/v2/media/${PLACEHOLDER_IMAGE_ID}`);
-    const { media_details } = response.data;
+    
+    //console.log("Placeholder Image Response:", response.data); // Debugging Line
+
+    if (!response.data || !response.data.media_details || !response.data.media_details.sizes) {
+      throw new Error("Unexpected API response format for placeholder image");
+    }
+
     return {
-      thumbnail: media_details.sizes.thumbnail.source_url,
-      medium: media_details.sizes.medium.source_url,
-      large: media_details.sizes.large.source_url,
-      full: response.data.source_url, // Full size
+      thumbnail: response.data.media_details.sizes.thumbnail?.source_url || "",
+      medium: response.data.media_details.sizes.medium?.source_url || "",
+      large: response.data.media_details.sizes.large?.source_url || "",
+      full: response.data.source_url || "",
     };
   } catch (error) {
     console.error("Error fetching placeholder image:", error);
-    // Fallback to a static URL if API call fails
-    //return "/img/img-placeholder-120x120.jpg";
+    return {
+      thumbnail: "/img/img-placeholder-120x120.jpg",
+      medium: "/img/img-placeholder-120x120.jpg",
+      large: "/img/img-placeholder-120x120.jpg",
+      full: "/img/img-placeholder-120x120.jpg",
+    };
   }
 };
 
+
 // Helper function to extract the featured image URL
-const getFeaturedImageUrl = (post) => {
+const getFeaturedImageUrl = (post, size = "medium") => {
   if (
     post._embedded &&
     post._embedded['wp:featuredmedia'] &&
     post._embedded['wp:featuredmedia'][0] &&
-    post._embedded['wp:featuredmedia'][0].source_url
+    post._embedded['wp:featuredmedia'][0].media_details
   ) {
-    return post._embedded['wp:featuredmedia'][0].source_url;
+    const mediaDetails = post._embedded['wp:featuredmedia'][0].media_details.sizes;
+    
+    // Check if the requested size exists; otherwise, use the full-size image
+    return mediaDetails[size]?.source_url || post._embedded['wp:featuredmedia'][0].source_url;
   }
-  return null; // Fallback if no featured image is available
+  return null;
 };
+
+
 
   // Fetch categories. Used in Menu.jsx
   export const fetchCategories = async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/wp/v2/categories`);
+      
+      //console.log("API Response:", response.data); // Debugging Line
+  
+      if (!Array.isArray(response.data)) {
+        throw new Error("Unexpected API response format");
+      }
+  
       return response.data;
     } catch (error) {
       console.error("Error fetching categories:", error);
       return [];
     }
   };
+  
 
 // Fetch posts by category ID. . Used in SideBar.jsx
 export const fetchPostsByCategory = async (categoryId) => {
@@ -119,15 +144,16 @@ export const fetchHeroArticle = async () => {
     if (post) {
       return {
         ...post,
-        featuredImage: getFeaturedImageUrl(post), // Ensure featuredImage is set
+        featuredImage: getFeaturedImageUrl(post, 'medium'), // Use the medium-sized image
       };
     }
     return null;
   } catch (error) {
-    console.error("Error fetching hero article:", error); // Log errors
+    console.error("Error fetching hero article:", error);
     return null;
   }
 };
+
 
 // Fetch the 2nd to 13th latest posts
 export const fetchFirstPosts = async () => {
@@ -219,6 +245,8 @@ export const fetchSearchResults = async (query, page = 1) => {
         _embed: true,
       },
     });
+
+    console.log("Fetched Data:", response.data); // Debugging Line
 
     return {
       posts: response.data,

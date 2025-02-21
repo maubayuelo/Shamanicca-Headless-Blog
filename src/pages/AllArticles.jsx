@@ -56,13 +56,12 @@ const AllArticles = () => {
   return (
     <>
       <SEO
-        title="Shamanicca Blog - All Articles"
-        description="Mindfulness, Wicca, White Magic, Alchemy &amp; Shamanism Blog"
-        keywords="meditation, spirituality, guided meditations, inner peace, wicca, shamanism, Mindfulness,  White Magic, Alchemy, Blog"
-        image="https://shamanicca.com/path-to-image.jpg"
-        url="https://shamanicca.com"
+        title="All Articles - Shamanicca Blog"
+        description="Browse through all our articles on meditation, spirituality, Wicca, and magic."
+        url="https://shamanicca.com/articles"
       />
-      <section className="content content_ext">
+
+      <section className="content content_ext margin-bottom-sm">
         {/* Main Banner Section */}
         <MainBanner
           title={"All Blog Articles"}
@@ -82,17 +81,9 @@ const AllArticles = () => {
                   key={post.id}
                   post={post}
                   placeholderImage={placeholderImage}
-                  decodeEntities={(str) =>
-                    str
-                      .replace(/(<([^>]+)>)/gi, "")
-                      .split(" ")
-                      .slice(0, 12)
-                      .join(" ")
-                  }
                 />
                 {posts.length > 5 && index === 2 && (
                   <AdBanner
-                    key={index}
                     classes={["margin-bottom-md"]}
                     key={`ad-banner-4th-${index}`}
                   />

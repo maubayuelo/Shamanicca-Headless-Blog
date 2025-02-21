@@ -4,6 +4,7 @@ import axios from "axios";
 import "../styles/app.scss";
 import { fetchCategories } from "../utils/api";
 import socialLinks from "./socialLinks";
+import { decodeEntities } from "../utils/decodeEntities";
 
 const Menu = ({ isMenuVisible }) => {
   const [categories, setCategories] = useState([]); // State to store categories
@@ -36,7 +37,7 @@ const Menu = ({ isMenuVisible }) => {
             className="type-sansserif type-bold type-sz-xsm type-no-decoration"
             href={`/category/${category.slug}`}
           >
-            {category.name}
+            {decodeEntities(category.name)}
           </a>
         ))
       ) : (
@@ -44,24 +45,24 @@ const Menu = ({ isMenuVisible }) => {
       )}
 
       {/* Static Links */}
-      <a
+      {/* <a
         href="/page/get-shamaniccas-newsletter/"
         className="type-sansserif type-bold type-sz-xsm margin-top-md type-no-decoration"
       >
         Get Newsletter
-      </a>
+      </a> */}
       <a
         href="/page/about-shamanicca/"
-        className="type-sansserif type-bold type-sz-xsm margin-top-xsm type-no-decoration"
+        className="type-sansserif type-bold type-sz-xsm margin-top-md type-no-decoration"
       >
         About Shamanicca
       </a>
-      <a
+      {/* <a
         href="/page/contact-us/"
         className="type-sansserif type-bold type-sz-xsm margin-top-xsm type-no-decoration"
       >
         Contact Us
-      </a>
+      </a> */}
 
       {/* Social Links */}
       <p className="type-sansserif type-uppercase type-sz-caption margin-top-md">

@@ -13,6 +13,7 @@ import Article from "./pages/Article";
 import Category from "./pages/Category";
 import AllArticles from "./pages/AllArticles";
 import Page from "./pages/Page";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
@@ -59,6 +60,8 @@ const App = () => {
           <Route path="/search/:query" element={<SearchResults />} />
           <Route path="/search/:query/:page" element={<SearchResults />} />
           <Route path="/page/:slug" element={<Page />} />
+          {/* Catch-all 404 Page */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Sidebar />
       </main>

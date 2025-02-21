@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   // Category IDs
   const POPULAR_ARTICLES_ID = 82; // ID for "popular-articles" category
-  const WHITE_MAGIC_ID = 5; // ID for "white-magic-for-beginners" category
+  const WHITE_MAGIC_ID = 7; // ID for "white-magic-for-beginners" category
 
   useEffect(() => {
     const loadSidebarData = async () => {
@@ -95,7 +95,7 @@ const Sidebar = () => {
       {/* White Magic for Beginners Section */}
       <section className="categories margin-top-md">
         <h3 className="type-uppercase type-sansserif type-bold type-sz-default">
-          White Magic 101
+          Magical Practices
         </h3>
         {loading ? (
           <>
