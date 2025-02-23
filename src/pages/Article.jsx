@@ -113,7 +113,7 @@ const Article = () => {
 
       <section className="content">
         <article>
-          <h1 className="type-sansserif type-sz-lg padding-top-md type-bold type-uppercase">
+          <h1 className="type-sansserif type-sz-md padding-top-md type-bold type-uppercase">
             {decodeEntities(article.title.rendered)}
           </h1>
 
